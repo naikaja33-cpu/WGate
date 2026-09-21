@@ -48,7 +48,7 @@ const navItems = {
 
 export default function AppLayout() {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user,logout } = useAuth();
   const role = user?.role || 'resident';
   const [enabledMenus, setEnabledMenus] = useState(null);
 
@@ -79,7 +79,7 @@ export default function AppLayout() {
         <div className="flex items-center gap-3">
           <span className="text-xs font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full capitalize">{role}</span>
           <NotificationBell />
-          <button onClick={() => base44.auth.logout()} className="text-muted-foreground hover:text-foreground transition-colors">
+          <button onClick={() =>logout()} className="text-muted-foreground hover:text-foreground transition-colors">
             <LogOut className="w-4 h-4" />
           </button>
         </div>

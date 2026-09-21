@@ -9,7 +9,7 @@ import { User, Phone, Home, Mail, Shield, LogOut } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 
 export default function Profile() {
-  const { user, refreshUser } = useAuth();
+  const { user, refreshUser,logout } = useAuth();
   const [flat, setFlat] = useState(user?.flat_number || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [saved, setSaved] = useState(false);
@@ -76,7 +76,7 @@ export default function Profile() {
       <Button
         variant="outline"
         className="w-full text-destructive border-destructive/20 hover:bg-destructive/5"
-        onClick={() => base44.auth.logout()}
+        onClick={() => logout()}
       >
         <LogOut className="w-4 h-4 mr-2" /> Sign Out
       </Button>
