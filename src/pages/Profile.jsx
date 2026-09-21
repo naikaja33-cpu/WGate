@@ -9,7 +9,7 @@ import { User, Phone, Home, Mail, Shield, LogOut } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 
 export default function Profile() {
-  const { user, refreshUser,logout } = useAuth();
+  const { user,logout, refreshUser } = useAuth();
   const [flat, setFlat] = useState(user?.flat_number || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [saved, setSaved] = useState(false);
